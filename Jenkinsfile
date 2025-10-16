@@ -9,10 +9,6 @@ pipeline {
         )
     }
 
-    environment {
-        AWS_CREDENTIALS = credentials('aws-credentials')
-    }
-
         stage("terraform init") {
             steps {
                 sh('terraform init') 
@@ -26,4 +22,3 @@ pipeline {
            }
         }
     }
-}
