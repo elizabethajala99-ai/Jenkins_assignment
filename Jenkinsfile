@@ -9,6 +9,7 @@ pipeline {
         )
     }
 
+    stages {
         stage("terraform init") {
             steps {
                 sh('terraform init') 
@@ -19,6 +20,7 @@ pipeline {
             steps {
                 echo "Terraform action is --> ${params.action}"
                 sh("terraform ${params.action} --auto-approve") 
-           }
+            }
         }
     }
+}
