@@ -1,22 +1,29 @@
 pipeline {
     agent any
-        
-        stage('Terraform Init') {
+
+    parameters {
+        choice(
+            name: 'action',
+            choices: ['plan', 'apply', 'destroy'],
+            description: 'Select Terraform action to execute'
+        )
+    }
+
+    environment {
+        AWS_CREDENTIALS = credentials('aws-credentials')
+    }
+
+        stage("terraform init") {
             steps {
-                sh 'terraform init'
+                sh('terraform init') 
             }
         }
         
-        stage('Terraform Plan') {
+        stage("terraform Action") {
             steps {
-                sh 'terraform plan'
-            }
-        }
-        
-        stage('Terraform Apply') {
-            steps {
-                sh 'terraform apply -auto-approve'
-            }
+                echo "Terraform action is --> ${params.action}"
+                sh("terraform ${params.action} --auto-approve") 
+           }
         }
     }
 }
