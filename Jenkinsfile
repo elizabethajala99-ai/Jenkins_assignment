@@ -10,7 +10,7 @@ pipeline {
     }
 
     environment {
-        AWS_CREDENTIALS = credentials('aws-credentials')
+        AWS_CREDENTIALS = credentials('my-cba-aws-credential') // Use your Jenkins-stored AWS credentials ID
     }
 
     stages {
