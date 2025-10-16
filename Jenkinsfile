@@ -26,7 +26,7 @@ pipeline {
                     if (params.action == 'plan') {
                         sh 'terraform plan'
                     } else {
-                        sh "terraform ${params.action} --auto-approve"
+                        sh "terraform ${params.action}""
                     }
                 }
             }
