@@ -4,7 +4,7 @@ This project demonstrates the integration of Jenkins with GitHub and AWS using T
 
 ## Project Overview
 - Creates an S3 bucket using Terraform
-- Implements pipeline job (parametarized) using Jenkins
+- Implements pipeline job (parameterized) using Jenkins
 - Automates infrastructure deployment through GitHub integration
 
 ## Repository Structure
